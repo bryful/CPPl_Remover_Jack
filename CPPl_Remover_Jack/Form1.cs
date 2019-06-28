@@ -113,24 +113,33 @@ namespace CPPl_Remover_Jack
 			{
 				foreach (string s in cmd)
 				{
-					if(CPPl_remover.IsAepFile(s)==true)
+					if(GetCommand(s)==true)
 					{
-						if (cppl.CheckAep(s) == true)
-						{
-							if (cppl.ListSize <= 4)
-							{
-								edProgress.AppendText("\r\n*** 削除済みです ***\r\n");
-								edAep.Text = "";
-							}
-							else
-							{
-								edAep.Text = s;
-								break;
-							}
-						}
+						break;
 					}
 				}
 			}
+		}
+		public bool　GetCommand(string s)
+		{
+			bool ret = false;
+			if (CPPl_remover.IsAepFile(s) == true)
+			{
+				if (cppl.CheckAep(s) == true)
+				{
+					if (cppl.ListSize <= 4)
+					{
+						edProgress.AppendText("\r\n*** 削除済みです ***\r\n");
+						edAep.Text = "";
+					}
+					else
+					{
+						edAep.Text = s;
+						ret = true;
+					}
+				}
+			}
+			return ret;
 		}
 		/// <summary>
 		/// メニューの終了
@@ -158,8 +167,7 @@ namespace CPPl_Remover_Jack
 			dlg.DefaultExt = ".aep";
 			if (dlg.ShowDialog() == DialogResult.OK)
 			{
-				edAep.Text = dlg.FileName;
-				return true;
+				return GetCommand(dlg.FileName);
 			}
 			else
 			{

@@ -137,49 +137,44 @@ namespace CPPl_Remover_Jack
 				if (idx >= 0)
 				{
 					long sz = GetTaglength(bs, idx);
-					showMessage(String.Format("svapタグを見つけました。サイズは{0}byteです", sz));
+					showMessage(String.Format("[svap]タグを見つけました。サイズは{0}byteです", sz));
 				}
 				idx = FindTag(bs, "head", 0);
 				if (idx >= 0)
 				{
 					long sz = GetTaglength(bs, idx);
-					showMessage(String.Format("headタグを見つけました。サイズは{0}byteです", sz));
+					showMessage(String.Format("[head]タグを見つけました。サイズは{0}byteです", sz));
 				}
 				idx = FindTag(bs, "nhed", 0);
 				if (idx >= 0)
 				{
 					long sz = GetTaglength(bs, idx);
-					showMessage(String.Format("nhedタグを見つけました。サイズは{0}byteです", sz));
+					showMessage(String.Format("[nhed]タグを見つけました。サイズは{0}byteです", sz));
 				}
-				idx = FindTag(bs, "nhed", 0);
-				if (idx >= 0)
-				{
-					long sz = GetTaglength(bs, idx);
-					showMessage(String.Format("nhedタグを見つけました。サイズは{0}byteです", sz));
-				}
+				
 				idx = FindTag(bs, "adfr", 0);
 				if (idx >= 0)
 				{
 					long sz = GetTaglength(bs, idx);
-					showMessage(String.Format("adfrタグを見つけました。サイズは{0}byteです", sz));
+					showMessage(String.Format("[adfr]タグを見つけました。サイズは{0}byteです", sz));
 				}
 				idx = FindTag(bs, "qtlg", 0);
 				if (idx >= 0)
 				{
 					long sz = GetTaglength(bs, idx);
-					showMessage(String.Format("qtlgタグを見つけました。サイズは{0}byteです", sz));
+					showMessage(String.Format("[qtlg]タグを見つけました。サイズは{0}byteです", sz));
 				}
 				idx = FindTag(bs, "acer", 0);
 				if (idx >= 0)
 				{
 					long sz = GetTaglength(bs, idx);
-					showMessage(String.Format("acerタグを見つけました。サイズは{0}byteです", sz));
+					showMessage(String.Format("[acer]タグを見つけました。サイズは{0}byteです", sz));
 				}
 				idx = FindTag(bs, "LIST", 0);
 				if (idx >= 0)
 				{
 					int sz = GetTaglength(bs, idx);
-					showMessage(String.Format("LISTタグを見つけました。サイズは{0}byteです", sz));
+					showMessage(String.Format("[LIST]タグを見つけました。サイズは{0}byteです", sz));
 					m_ListIndex = idx;
 					m_ListSize = sz;
 					m_FileSize = (int)fs.Length;
@@ -221,7 +216,7 @@ namespace CPPl_Remover_Jack
 
 
 			string srcPath = m_filepath;
-			string dstPath = Path.Combine(Path.GetDirectoryName(m_filepath),"temp.aep");
+			string dstPath = Path.Combine(Path.GetDirectoryName(m_filepath),"__temp__.aep");
 
 			if(File.Exists(dstPath)==true)
 			{
@@ -232,6 +227,7 @@ namespace CPPl_Remover_Jack
 			FileStream ws = new System.IO.FileStream(dstPath,FileMode.Append,FileAccess.Write);
 			try
 			{
+				
 				showMessage("\r\n[" + m_filepath + "]変換開始");
 				long bf = m_ListIndex + 12;
 
@@ -293,7 +289,9 @@ namespace CPPl_Remover_Jack
 
 				if (ret == true)
 				{
-					File.Move(srcPath, srcPath + ".backup");
+					string bak = BackupFilename(srcPath);
+					
+					File.Move(srcPath, bak);
 					File.Move(dstPath, srcPath);
 
 				}
@@ -313,5 +311,23 @@ namespace CPPl_Remover_Jack
 
 			return ret;
 		}
+		private string BackupFilename(string s)
+		{
+			string ret = s + ".bak001";
+
+			if (File.Exists(ret)==true)
+			{
+				int idx = 2;
+				do
+				{
+					ret = s + String.Format(".bak{0:000}", idx);
+					idx++;
+				}
+				while (File.Exists(ret) == true);
+
+			}
+			return ret;
+		}
 	}
+	
 }
