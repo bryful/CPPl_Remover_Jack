@@ -141,7 +141,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="CPPl_Remover_Jack.ico" />
-    <Content Include="Skelton.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

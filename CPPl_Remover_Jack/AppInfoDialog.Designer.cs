@@ -53,7 +53,7 @@
 			// 
 			this.lbCanpany.AutoSize = true;
 			this.lbCanpany.Font = new System.Drawing.Font("MS UI Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-			this.lbCanpany.Location = new System.Drawing.Point(155, 22);
+			this.lbCanpany.Location = new System.Drawing.Point(156, 15);
 			this.lbCanpany.Name = "lbCanpany";
 			this.lbCanpany.Size = new System.Drawing.Size(70, 19);
 			this.lbCanpany.TabIndex = 1;
@@ -83,7 +83,7 @@
 			// 
 			this.lbDescription.AutoSize = true;
 			this.lbDescription.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-			this.lbDescription.Location = new System.Drawing.Point(18, 160);
+			this.lbDescription.Location = new System.Drawing.Point(36, 155);
 			this.lbDescription.Name = "lbDescription";
 			this.lbDescription.Size = new System.Drawing.Size(40, 16);
 			this.lbDescription.TabIndex = 4;
@@ -92,7 +92,7 @@
 			// button1
 			// 
 			this.button1.DialogResult = System.Windows.Forms.DialogResult.OK;
-			this.button1.Location = new System.Drawing.Point(289, 170);
+			this.button1.Location = new System.Drawing.Point(290, 176);
 			this.button1.Name = "button1";
 			this.button1.Size = new System.Drawing.Size(95, 33);
 			this.button1.TabIndex = 5;

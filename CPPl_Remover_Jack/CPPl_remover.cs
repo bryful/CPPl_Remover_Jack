@@ -175,6 +175,12 @@ namespace CPPl_Remover_Jack
 				{
 					int sz = GetTaglength(bs, idx);
 					showMessage(String.Format("[LIST]タグを見つけました。サイズは{0}byteです", sz));
+					if (sz>4)
+					{
+						showMessage(String.Format("*** [CPPl]サイズは{0}Kbyteです ***", (int)((sz-4)/1024)));
+
+					}
+
 					m_ListIndex = idx;
 					m_ListSize = sz;
 					m_FileSize = (int)fs.Length;

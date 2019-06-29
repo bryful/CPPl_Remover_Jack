@@ -6,7 +6,7 @@ using System.Runtime.InteropServices;
 // アセンブリに関連付けられている情報を変更するには、
 // これらの属性値を変更してください。
 [assembly: AssemblyTitle("CPPl_Remover_Jack")]
-[assembly: AssemblyDescription("アプリのスケルトン")]
+[assembly: AssemblyDescription("むらしんさんのCPPl_Remover.exeのぱくりです")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("bry-ful")]
 [assembly: AssemblyProduct("CPPl_Remover_Jack")]
