@@ -9,6 +9,7 @@ After Effects aepファイルのCPPlタグを初期化します。
   
 僕が1G超えのaepファイルを使ってて、少しでも早くしようと高速化してしてますが、あまり変わってません。  
   
+おまけのClearXmpHistory.jsxはaep内のXMPメタデータ内のHistoryをクリアするスクリプトです。  
 # Usage
 aepをドラッグ＆ドロップして登録するか、selectボタンを押してダイアログで選んでください。
 CPPlタグがあればexecボタンで変換です。  
