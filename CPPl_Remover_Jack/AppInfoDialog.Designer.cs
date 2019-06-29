@@ -135,6 +135,8 @@
 			this.Controls.Add(this.pictureBox2);
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
 			this.Name = "AppInfoDialog";
+			this.ShowIcon = false;
+			this.ShowInTaskbar = false;
 			this.Text = "AppInfoDialog";
 			this.Load += new System.EventHandler(this.AppInfoDialog_Load);
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
